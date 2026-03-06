@@ -1,602 +1,512 @@
-<DOCTYPE html="">
-	<html lang="en">
-
-		
-<!-- Mirrored from www.growsmart.co.in/home by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Nov 2023 04:55:00 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-			<meta charset="utf-8"></meta>
-			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-			<meta name="description" content=""></meta>
-			<meta name="author" content=""></meta>
-			<title>TsyTriangle</title>
-      
-			
-			<link rel="shortcut icon" href="media\images\logo square.png"/>
-			<!-- Font Awesome Icons -->
-			<link href="ThePrudentTheme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOICEOS Investor Demo Prototype</title>
+  <style>
+    :root {
+      --bg: #060a18;
+      --bg-soft: #0d1430;
+      --card: #121a35;
+      --text: #edf1ff;
+      --muted: #b4c0ec;
+      --accent: #7f9dff;
+      --accent-2: #2fd3b0;
+      --danger: #ff727f;
+      --border: #273666;
+      --ok: #2fd3b0;
+    }
 
-			<!-- Google Fonts -->
-			<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"/>
-			<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 10% 0%, #152559 0%, var(--bg) 36%), linear-gradient(145deg, #060a18, #0e1533 55%, #101a3c);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
 
-			<!-- Plugin CSS -->
-			<link href="ThePrudentTheme/vendor/magnific-popup/magnific-popup.css" rel="stylesheet"/>
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
 
-			<link href="ThePrudentTheme/css/theme.css" rel="stylesheet"/>
-			<link href="ThePrudentTheme/css/bootstrap.css" rel="stylesheet"/>
-			<link href="ThePrudentTheme/css/font-awesome.css" rel="stylesheet"/>
-			<link href="ThePrudentTheme/css/owl.carousel.min.css" rel="stylesheet"/>
-			<link href="ThePrudentTheme/css/owl.carousel.css" rel="stylesheet"/>
-			<link href="ThePrudentTheme/css/owl.transitions.css" rel="stylesheet"/>
-      
-      <link rel="icon" href="media\images\logo square.png" sizes="32x32" />
-      <link rel="icon" href="media\images\logo square.png" sizes="192x192" />
-      <link rel="apple-touch-icon" href="media\images\logo square.png" />
-      <meta name="msapplication-TileImage" content="media\images\logo square.png" />
-      
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(6, 10, 24, 0.82);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(127, 157, 255, 0.25);
+    }
 
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
 
-			
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      font-size: 1.05rem;
+    }
 
-			<!-- Theme CSS - Includes Bootstrap -->
+    .brand span { color: var(--accent-2); }
 
+    .badge {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
 
-			
-			
-			<link href="media/css/site_customb519.css?v=YTkPA34y4A02ntN1ebJstpW-Cxu46ds0KRUgAam121M" rel="stylesheet" type="text/css" />
-						<style>
-        /* Additional CSS for Header Styling */
-        .navbar {
-            background-color: white; /* White background for the header */
-            padding: 10px; /* Add padding for the header */
-            border-radius: 5px; /* Add border-radius for a rounded appearance */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-        }
-    
-        .navbar-brand img {
-            max-height: 80px; /* Set the maximum height for the logo */
-            max-width: 80;
-        }
-    
-        .company-name {
-            font-size: 30px; /* Adjust the font size for the company name */
-            color: black; /* Set the color for the company name */
-            margin-left: 10px; /* Add margin to separate logo and company name */
-        }
-    
-        .navbar-nav .nav-item .nav-link {
-            color: black !important; /* Set the color for the navigation links */
-        }
-    </style>
-		</head>
+    section { padding: 40px 0; }
 
-		<body id="page-top" dir="ltr">
+    .hero {
+      padding-top: 48px;
+    }
 
-			<!-- Navigation -->
-      
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      line-height: 1.1;
+      max-width: 900px;
+    }
 
-			
+    .hero p {
+      color: var(--muted);
+      max-width: 860px;
+      margin-top: 14px;
+    }
 
-<div class="widget-container">
+    .quote {
+      margin-top: 14px;
+      border-left: 4px solid var(--accent-2);
+      background: rgba(47, 211, 176, 0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #d7fff5;
+    }
 
-    
+    .layout {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+    }
 
+    @media (min-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr 1.05fr;
+      }
+    }
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav_style" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="home.html">
-      <img src="media\images\logo square.png">
-      <h1 style="color: purple;">TSY TRIANGLE</h1>
-    </a>
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-     
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-	<ul class="navbar-nav  accordion"  id="accordionExample">
-		
-		<!--<ul class="navbar-nav">
-    <li class="nav-item">
-        
-        
-        
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    }
 
-<a href="/home">Home</a>
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+    }
 
-    </li>
-</ul>-->
+    .muted { color: var(--muted); }
 
-<li class="nav-item">
+    ul { padding-left: 18px; margin: 0; }
+    li { margin: 8px 0; color: var(--muted); }
 
-	
-	
-	
+    .flow { display: grid; gap: 8px; margin-top: 10px; }
+    .step {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.015);
+    }
 
-<a href="home.html">Home</a>
+    .tax {
+      margin-top: 12px;
+      border: 1px solid rgba(255, 114, 127, 0.45);
+      background: rgba(255, 114, 127, 0.12);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #ffe1e5;
+      font-weight: 600;
+    }
 
-	
-</li>
+    .demo-ui {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
 
+    .prompt-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px;
+    }
 
-		
-		<!--<ul class="navbar-nav">
-    <li class="nav-item">
-        
-        
-        
+    textarea {
+      width: 100%;
+      min-height: 84px;
+      resize: vertical;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: #0a122c;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
 
-<a href="/AboutPage">About Us</a>
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
 
-    </li>
-</ul>-->
+    button {
+      border: 1px solid var(--border);
+      background: #152250;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-<li class="nav-item">
+    button.primary {
+      background: linear-gradient(135deg, #6f8dff, #3f63ff);
+      border-color: #7f9dff;
+      color: #fff;
+    }
 
-	
-	
-	
+    button.success {
+      background: linear-gradient(135deg, #20bb9b, #1ea784);
+      border-color: #2fd3b0;
+      color: #fff;
+    }
 
-<a href="AboutPage.html">About Us</a>
+    .status {
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-	
-</li>
+    .pipeline {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
 
+    .pipeline .node {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      background: rgba(127, 157, 255, 0.06);
+      color: #dbe3ff;
+    }
 
-		
-		
-		<!--<ul class="navbar-nav">
-    <li class="nav-item">
-        
-        
-        
+    .node.active {
+      border-color: var(--accent-2);
+      background: rgba(47, 211, 176, 0.15);
+      color: #d9fff4;
+    }
 
-<a href="/contact-us">Contact Us</a>
+    .options {
+      margin-top: 8px;
+      display: grid;
+      gap: 8px;
+    }
 
-    </li>
-</ul>-->
+    .option {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.015);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
 
-<li class="nav-item">
+    .option.best {
+      border-color: var(--ok);
+      background: rgba(47, 211, 176, 0.1);
+    }
 
-	
-	
-	
+    .summary {
+      margin-top: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(127, 157, 255, 0.08);
+      padding: 10px;
+      color: #dde5ff;
+    }
 
-<a href="contact-us.html">Contact Us</a>
+    .hidden { display: none; }
 
-	
-</li>
-
-
-		
-		<!--<ul class="navbar-nav">
-    <li class="nav-item">
-        
-        
-        
-
-<a href="/loginpage">Login</a>
-
-    </li>
-</ul>-->
-
-
-
-		
-	</ul>
-</div>
-
-      
+    footer {
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">VOICE<span>OS</span> | Investor Demo</div>
+      <div class="badge">Working Prototype (Mock APIs)</div>
     </div>
-  </div>
-</nav>
+  </header>
 
+  <main class="container">
+    <section class="hero">
+      <h1>Replace the Scroll Tax with a Voice-First Agentic Super-App</h1>
+      <p>This prototype is intentionally built for investor demos: it explains the pain, then shows a working action flow where VOICEOS interprets voice intent, compares partner options, and executes a booking.</p>
+      <div class="quote">“I’ll first explain the problem and the solution clearly. After that, I’m happy to answer questions or go deeper into any part.”</div>
+      <div class="quote">“VOICEOS is the world’s first neutral, actionable operating system that replaces the Scroll Tax with a voice-first Agentic Super-App.”</div>
+    </section>
 
-</div>
-
-
-
-			<div class="nocontainer" id="main">
-				
-				
-
-<script src="../ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script language="javascript" type ="text/javascript">
-
- 
-$(document).ready(function () {
-  
-loadfun();
-$('#btnclose').click(function(){
-        $('#stripimg').hide();
-    });
-});
-function loadfun() {
-    var data = { domainname: $(location).attr('host') };
-        $.ajax({
-            url: 'ThePrudentTheme/Index',
-            contentType: 'application/x-www-form-urlencoded',
-            data: data,
-            success: function (data) {
-                data = JSON.parse(data);
-                debugger
-                    if (data.data.T1.length != 0){
-                        Image = data.data.T1[0].Image ;
-                        IsImage = data.data.T1[0].IsImage ;
-                        PopUp = data.data.T1[0].PopUp ;
-                        PopupBody = data.data.T1[0].PopupBody ;
-
-                    }
-               
-                if (PopUp == "True"){
-                    $('#container').append(PopupBody);
-                    $('#container #largeModal').modal('show');
-                
-                }
-                
-                if (IsImage == "True"){
-                     $('#stripimg').append('<img src= "' + Image + '"/>');
-                }
-                
-
-                setTimeout(function() {
-                    $('#stripimg').hide();
-                }, 60000);
-            }
-        }); 
-}
-</script>
-
-
-<div id="container">
-</div>
-
-
-
-<section class="wrapper bg-dark angled lower-start">
-    <div class="container">
-        <div id="stripimg">
-    
-</div>
-    </div>
-  <div class="container pt-7 pt-md-11 pb-8">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-5" data-cues="slideInDown" data-group="page-title" data-delay="600">
-        <div class="startTyper"></div>
-        <p>
-          <h1>
-            MISSION
-          </h1>
-        </p>
-        <p class="lead fs-24 lh-sm text-white mb-7 pe-md-18 pe-lg-0 pe-xxl-15">Committed to Quality, there’s always way to do it Better
-          </p>
-          <p class="lead fs-24 lh-sm text-white mb-7 pe-md-18 pe-lg-0 pe-xxl-15">
-            “We save your time, use your time for priorities”</p>
-        <div>
-          <a href="contact-us.html" class="btn btn-lg btn-primary rounded">Get Started</a>
+    <section class="layout">
+      <article class="card">
+        <h2>The Reality Today (Pain)</h2>
+        <div class="flow">
+          <div class="step">1) Unlock phone → find Ola/Uber → open app</div>
+          <div class="step">2) Wait for loading + permissions</div>
+          <div class="step">3) Enter destination manually</div>
+          <div class="step">4) Compare cab type and pricing</div>
+          <div class="step">5) Confirm and complete booking</div>
         </div>
-      </div>
-      <!-- /column -->
-      <div class="col-lg-5 offset-lg-1 mb-n18" data-cues="slideInDown">
-        <div class="basic-slider owl-carousel dots-over shadow-lg" data-nav="true" data-margin="5">
-          
-                <div class="item active">
-                    <img src="media/images/home/slider1.jpg" class="rounded" alt="" />
-                </div>
-          
-                <div class="item active">
-                    <img src="media/images/home/slider2.jpg" class="rounded" alt="" />
-                </div>
-          
-                
-          
-        </div>
-        <!-- /div -->
-      </div>
-      <!-- /column -->
-    </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
-</section>
+        <div class="tax">This is not user experience. This is workflow tax (“The Scroll Tax”).</div>
 
+        <h2 style="margin-top:18px;">The Shift</h2>
+        <ul>
+          <li><strong>From app-centric:</strong> “Which app should I open?”</li>
+          <li><strong>To intent-centric:</strong> “What do I want to get done?”</li>
+          <li><strong>From informational AI:</strong> answers only</li>
+          <li><strong>To actionable AI:</strong> executes end-to-end tasks</li>
+        </ul>
+      </article>
 
-<section class="aboutus">
-  <div class="container">
-    <div class="row align-items-center">
-  
-      <!--/column -->
-      <div class="col-lg-5 col-xl-4 offset-lg-1">
-        
-        <h2 class="fs-16 text-uppercase text-line text-primary mb-3">---</h2>
-        
-        <h3 class="display-4 mb-5"></h3>
-       
-        <div class="d-flex flex-row mb-3">
-          
-          
-        </div>
-        
-        <div class="d-flex flex-row mb-3">
-          
-          <div>
-            
-            <p class="mb-0"><h4>I’m Tamilselvi, Managing Partner at TSY TRIANGLE, when I was
-              wrapping covers to school Text Books to my Kid, it took almost more
-              than a couple of days, being a working mother, found very difficult to
-              spend time to wrap books at the last minute, and also can’t able to
-              balance work life and kid’s time.</h4></p>
+      <article class="card">
+        <h2>Live Demo: Book a Cab to Airport</h2>
+        <p class="muted">Try speaking or typing: <em>“Book me a cab to the airport tomorrow at 9 AM.”</em></p>
+
+        <div class="demo-ui">
+          <div class="prompt-box">
+            <label for="intentInput" class="muted">Voice / text command</label>
+            <textarea id="intentInput">Book me a cab to the airport tomorrow at 9 AM.</textarea>
+            <div class="controls">
+              <button id="voiceBtn">🎙️ Use Voice</button>
+              <button id="demoBtn" class="primary">Run VOICEOS Demo</button>
+              <button id="resetBtn">Reset</button>
+            </div>
           </div>
-        </div>
-        
-        <div class="d-flex flex-row mb-3">
-          
-          <div>
-            
-            <p class="mb-0"><h4>I quickly discovered an idea of Wrapping Text books to the school
-              students as a Business, with this idea, it helps the parents to save
-              Time and also, we thought of helping needy college students financial
-              support by involving them in to the project.</h4></p>
+
+          <div id="status" class="status">Status: waiting for user request.</div>
+
+          <div class="pipeline" id="pipeline">
+            <div class="node" data-step="intent">Voice → Intent understanding</div>
+            <div class="node" data-step="params">Intent → Structured parameters</div>
+            <div class="node" data-step="providers">Partner APIs → Compare options</div>
+            <div class="node" data-step="confirm">User confirmation</div>
+            <div class="node" data-step="execute">Execute booking</div>
           </div>
-        </div>
-        <div class="d-flex flex-row mb-3">
-          
-          <div>
-            
-            <p class="mb-0"><h4>Academic year 2023-24, we implemented this project in few schools in
-              and around annanagar, which was achieved great success between
-              parents. As a result, we found many are in need of this service. So
-              thought to bring up this as a project in the schools, it will be helpful to
-              the parents when they receive Wrapped Text Books from the school.</h4></p>
+
+          <div id="extracted" class="summary hidden"></div>
+          <div id="options" class="options hidden"></div>
+          <div class="controls hidden" id="confirmControls">
+            <button class="success" id="confirmBtn">Confirm Best Option</button>
           </div>
+          <div id="result" class="summary hidden"></div>
         </div>
-        
-      </div>
-      <!--/column -->
-    </div>
-  </div>
-</section>
+      </article>
+    </section>
 
+    <section class="card">
+      <h2>How VOICEOS Works</h2>
+      <ul>
+        <li><strong>Voice → Intent:</strong> LLM identifies user goal (e.g., cab booking).</li>
+        <li><strong>Intent → Action:</strong> parameters are extracted (destination, time, preferences).</li>
+        <li><strong>Action → APIs:</strong> authorized partners are called (Ola/Uber/local providers).</li>
+        <li><strong>Outcome:</strong> best option is confirmed and transaction is completed.</li>
+      </ul>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container">Prototype note: this demo uses mock provider responses to simulate real-time orchestration behavior for investor storytelling.</div>
+  </footer>
 
-<section class="testimonial">
-  <div class="container py-14 py-md-17">
-    <div class="row align-items-center">
-      <h3 class="display-4 mb-5">Client Testimonial</h3>
-      <!--/column -->
-      <div class="col-lg-7 mt-lg-12 mx-auto">
-        <div class="testimonial-slider owl-carousel gap-small" data-margin="30">
-            
-                <div class="item">
-                    
-                    <blockquote class="icon icon-top fs-lg text-center">
-                            <p>"This is the best notebook cover I have ever seen. It is so unique and it really makes my son's notebook stand out from the crowd. I am so glad I decided to get his notebook covered. It was definitely worth the money."<br></p> 
-                    <div class="blockquote-details justify-content-center text-center">
-                        <div class="info ps-0">
-                        <h5 class="mb-1">Mrs. Amritha K</h5>
-                        
-                        </div>
-                    </div>
-                    </blockquote>
-                </div>
-           
-                <div class="item">
-                    
-                    <blockquote class="icon icon-top fs-lg text-center">
-                            <p>"I am very happy with the notebook cover. It is very well made and it looks great. My daughter takes pride in her notebook now and she is always showing it off to her friends. I will definitely be using this service again in the future."<br></p>
-                    <div class="blockquote-details justify-content-center text-center">
-                        <div class="info ps-0">
-                        <h5 class="mb-1">Mr. Karthick</h5>
-                        
-                        </div>
-                    </div>
-                    </blockquote>
-                    
-                </div>
-           
-                <div class="item">
-                    
-                    <blockquote class="icon icon-top fs-lg text-center">
-                             <p>"My son very much like the notebook cover. He was so happy when I gave it to him. The notebook is very good quality wit the cover. My son's friends all want to get their notebooks covered too. I will definitely recommend this service to other parents. It is saved my time a lot"<br></p>
-                    <div class="blockquote-details justify-content-center text-center">
-                        <div class="info ps-0">
-                        <h5 class="mb-1">Mr. Murali</h5>
-                        
-                        </div>
-                    </div>
-                    </blockquote>
-                </div>
-                <div class="item">
-                    
-                  <blockquote class="icon icon-top fs-lg text-center">
-                           <p>
-                            "I was very impressed with the quality of the notebook cover and the customer service I received. The person who covered my son's notebook was very friendly and helpful. They made sure that I was happy with the cover before they shipped it to me. I would definitely recommend this service to other parents."<br></p>
-                  <div class="blockquote-details justify-content-center text-center">
-                      <div class="info ps-0">
-                      <h5 class="mb-1">Mrs. Shilfa</h5>
-                      
-                      </div>
-                  </div>
-                  </blockquote>
-              </div>
-           
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    const input = document.getElementById('intentInput');
+    const demoBtn = document.getElementById('demoBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const voiceBtn = document.getElementById('voiceBtn');
+    const statusEl = document.getElementById('status');
+    const extractedEl = document.getElementById('extracted');
+    const optionsEl = document.getElementById('options');
+    const confirmControls = document.getElementById('confirmControls');
+    const confirmBtn = document.getElementById('confirmBtn');
+    const resultEl = document.getElementById('result');
+    const nodes = Array.from(document.querySelectorAll('.node'));
 
+    let bestOption = null;
+    let parsed = null;
 
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
+    function setStatus(text) {
+      statusEl.textContent = 'Status: ' + text;
+    }
 
+    function activate(step) {
+      nodes.forEach(node => node.classList.toggle('active', node.dataset.step === step));
+    }
 
-<script src="ThePrudentTheme/js/jquery-1.9.1.min.js"></script>
-<script src="ThePrudentTheme/js/c1721a3de1.js"></script>
-<script src="ThePrudentTheme/js/compressed.js"></script>
-<script src="ThePrudentTheme/js/owl.carousel.min.js"></script>
-<script src="ThePrudentTheme/js/custom.js"></script>
-<script src="ThePrudentTheme/js/custom1.js"></script>
+    function clearPipeline() {
+      nodes.forEach(node => node.classList.remove('active'));
+    }
 
+    function mockParseIntent(text) {
+      const lower = text.toLowerCase();
+      const destination = lower.includes('airport') ? 'Airport' : 'Requested destination';
+      const when = lower.includes('tomorrow') ? 'Tomorrow' : 'Today';
+      const timeMatch = text.match(/(\d{1,2}\s?(?:am|pm))/i);
+      const time = timeMatch ? timeMatch[1].toUpperCase() : 'ASAP';
+      return {
+        intent: lower.includes('cab') || lower.includes('taxi') || lower.includes('ride') ? 'book_cab' : 'unknown',
+        destination,
+        when,
+        time
+      };
+    }
 
+    function mockProviders(data) {
+      const base = data.destination === 'Airport' ? 720 : 520;
+      const variants = [
+        { name: 'Ola', eta: 4, price: base + 60, car: 'Prime Sedan' },
+        { name: 'Uber', eta: 6, price: base + 20, car: 'Go Sedan' },
+        { name: 'Local Fleet', eta: 8, price: base - 10, car: 'Mini Cab' }
+      ];
+      return variants.sort((a, b) => (a.price + a.eta * 4) - (b.price + b.eta * 4));
+    }
 
-<script>
-    $(function() {
-    $(".startTyper").typed({
-    strings: [""],
-    typeSpeed: 50, // typing speed
-    backDelay: 1000, // pause before backspacing
-    loop: true, // loop on or off (true or false)
-    loopCount: false, // number of loops, false = infinite
-    stop:true,
-    });
-    });
-</script>
+    function renderOptions(options) {
+      optionsEl.innerHTML = '';
+      options.forEach((opt, idx) => {
+        const div = document.createElement('div');
+        div.className = 'option' + (idx === 0 ? ' best' : '');
+        div.innerHTML = `
+          <div><strong>${opt.name}</strong> · ${opt.car}<br><span class="muted">ETA ${opt.eta} min</span></div>
+          <div><strong>₹${opt.price}</strong></div>
+        `;
+        optionsEl.appendChild(div);
+      });
+      optionsEl.classList.remove('hidden');
+    }
 
+    function resetDemo() {
+      bestOption = null;
+      parsed = null;
+      setStatus('waiting for user request.');
+      clearPipeline();
+      extractedEl.classList.add('hidden');
+      optionsEl.classList.add('hidden');
+      confirmControls.classList.add('hidden');
+      resultEl.classList.add('hidden');
+      extractedEl.textContent = '';
+      optionsEl.innerHTML = '';
+      resultEl.textContent = '';
+    }
 
-<script>
-    $(document).ready(function(){
-        $(window).bind( 'hashchange', function( event ) {
-            var hash=window.location.hash;
-            if(!hash){return;}
-            $('a[href="'+hash+'"]').click();
-        });​
-        $(window).trigger('hashchange');
+    async function runDemo() {
+      resetDemo();
+      const text = input.value.trim();
+      if (!text) {
+        setStatus('please provide a command first.');
+        return;
+      }
 
-       
-    });
+      activate('intent');
+      setStatus('capturing voice/text and detecting intent...');
+      await sleep(700);
+      parsed = mockParseIntent(text);
 
-</script>
+      if (parsed.intent !== 'book_cab') {
+        setStatus('intent not recognized for this demo. Please ask to book a cab.');
+        return;
+      }
 
+      activate('params');
+      setStatus('extracting structured parameters...');
+      extractedEl.classList.remove('hidden');
+      extractedEl.innerHTML = `<strong>Extracted:</strong> intent=<code>${parsed.intent}</code>, destination=<code>${parsed.destination}</code>, date=<code>${parsed.when}</code>, time=<code>${parsed.time}</code>.`;
+      await sleep(850);
 
-			</div>
-			
+      activate('providers');
+      setStatus('calling partner APIs and comparing options...');
+      const options = mockProviders(parsed);
+      bestOption = options[0];
+      renderOptions(options);
+      await sleep(900);
 
-<div class="widget-container">
+      activate('confirm');
+      setStatus(`ready for confirmation. Suggested: ${bestOption.name} (${bestOption.car}) at ₹${bestOption.price}.`);
+      confirmControls.classList.remove('hidden');
+    }
 
-    <footer style="background: #838383 url(media/images/footer/ft-bg.png)">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 mb-3">
-        <a href="home.html">
-          <img src="media\images\logo square.png" alt="logo" class="ft_logo">
-        </a>
-        <div class="mt-4">
-         
-        </div>
-      </div>
-      <div class="col-lg-3 mb-3">
-        <h3 class="head-after">Get In Touch</h3>
-        <div class="mt-4 footer-contact">
-          <p>
-            <i class="fa fa-map-marker"></i> No.244, N Block, 18 th Street,
-            Annanagar East, Chennai-600102.
-          </p>
-          <p>
-            <a class="link-body">
-              <i class="fa fa-phone"></i> +91 8248158268</a>
-          </p>
-          <p>
-            <a class="link-body">
-              <i class="fa fa-phone"></i> +91 8248191606</a>
-          </p>
-          <h5></h5>
-          <p>
-            <a class="link-body">
-              <i class="fa fa-envelope-o"></i> tsytriangle@gmail.com</a>
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-3">
-        <h3 class="head-after">Important Links</h3>
-        <div class="mt-3">
-          <ul>
-            <li>
-              <a href="home.html">
-                <i class="fa fa-angle-right"></i> Home </a>
-            </li>
-            
-            <li>
-              <a href="contact-us.html">
-                <i class="fa fa-angle-right"></i> Contact us </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-3 mb-3">
-        <h3 class="head-after">Connect with Us</h3>
-        <div class="mt-4">
-          <ul class="social-icons">
-            <li>
-              <a href="#!" class="fb" target="_blank">
-                <i class="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#!" class="twitter" target="_blank">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#!" class="gp" target="_blank">
-                <i class="fa fa-instagram" target="_blank"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+    async function confirmBooking() {
+      if (!bestOption || !parsed) return;
+      activate('execute');
+      setStatus('executing booking with selected provider...');
+      await sleep(700);
+      const bookingId = 'VOX-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `<strong>Booking Confirmed ✅</strong><br>Provider: ${bestOption.name} (${bestOption.car}) · Fare: ₹${bestOption.price}<br>Pickup in ${bestOption.eta} min · Destination: ${parsed.destination} · Slot: ${parsed.when} ${parsed.time}<br>Booking ID: <code>${bookingId}</code>`;
+      setStatus('transaction complete.');
+    }
 
-			
+    function initVoiceInput() {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SR) {
+        setStatus('voice API not supported in this browser. Type your request instead.');
+        return;
+      }
+      const recognition = new SR();
+      recognition.lang = 'en-IN';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      setStatus('listening... say your command.');
+      recognition.start();
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        input.value = transcript;
+        setStatus('voice captured. ready to run demo.');
+      };
+      recognition.onerror = () => {
+        setStatus('voice capture failed. please type your command.');
+      };
+    }
 
-			<!-- Bootstrap core JavaScript -->
-			<script src="ThePrudentTheme/vendor/jquery/jquery.min.js"></script>
-			<script src="ThePrudentTheme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-			<!-- Plugin JavaScript -->
-			<script src="ThePrudentTheme/vendor/jquery-easing/jquery.easing.min.js"></script>
-			<script src="ThePrudentTheme/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-
-
-			<!-- Custom scripts for this template -->
-			<!--<script src="/ThePrudentTheme/js/creative.min.js"></script>-->
-			<script src="ThePrudentTheme/js/jquery-1.9.1.min.js"></script>
-
-			<script src="ThePrudentTheme/js/c1721a3de1.js"></script>
-			<script src="ThePrudentTheme/js/compressed.js"></script>
-			<script src="ThePrudentTheme/js/owl.carousel.min.js"></script>
-			<script src="ThePrudentTheme/js/custom.js"></script>
-			<!--<script src="/ThePrudentTheme/js/custom1.js"></script>-->
-
-			<script src="ThePrudentTheme/testimonial/js/custom.js"></script>
-			<script src="ThePrudentTheme/testimonial/js/owl.carousel.min.js"></script>
-
-			<script src='ThePrudentTheme/slick/js/slick.min.js'></script>
-			<!--<script>
-
-				$(function() {
-				$(".startTyper").typed({
-				strings: ["Make Business Easy with us"],
-				typeSpeed: 50, // typing speed
-				backDelay: 1000, // pause before backspacing
-				loop: true, // loop on or off (true or false)
-				loopCount: false, // number of loops, false = infinite
-				stop:true,
-				});
-				});
-
-
-			</script>-->
-		</body>
-
-	
-<!-- Mirrored from www.growsmart.co.in/home by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Nov 2023 04:55:00 GMT -->
+    demoBtn.addEventListener('click', runDemo);
+    resetBtn.addEventListener('click', resetDemo);
+    confirmBtn.addEventListener('click', confirmBooking);
+    voiceBtn.addEventListener('click', initVoiceInput);
+  </script>
+</body>
 </html>
-
-</DOCTYPE>
